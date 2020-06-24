@@ -1,6 +1,29 @@
-<h1>Editing Character</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<%= render 'form', character: @character %>
+<html>
 
-<%= link_to 'Show', @character %> |
-<%= link_to 'Back', characters_path %>
+<head>
+<title>Edit Character</title>
+<link href='http://fonts.googleapis.com/css?family=Khula:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<!-- sidebar and buttons -->
+    <div class='sidebar'>
+        <h1><%= @character.name %></h1> <!-- Page title goes here. -->
+        <br></br>
+        <img src="<%= @character.image_link%>" class="side-image">
+        <br></br>
+        <div class="button-group">
+          <button class="button"> <%= link_to 'Show', character_path(@character) %> </button>
+          <button class="button"> <%= link_to 'Back', characters_path %> </button>
+          <button class="button"> <%= link_to 'Delete', character_path(@character), method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+        </div>
+    </div>
+
+<!-- main body -->
+    <div class="wrapper">
+      <%= render 'form', character: @character %>
+    </div>
+</body>

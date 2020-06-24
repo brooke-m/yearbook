@@ -51,15 +51,13 @@
     }
     
     .nav a, a {
-        color:#ccc;
+        color:#ccc !important;
         text-decoration:none;
         border-bottom:1px solid #555;
-        transition:0.5s all;
     }
     
     .nav a:hover, a:hover {
         color:#fff;
-        letter-spacing:3px;
     }
     
     .nav a {
@@ -105,7 +103,7 @@
     .sidebar .button {
         display:inline;
         background:none;
-        border:1px solid #555;
+        border:1px solid #555 !important;
         margin:3px 0px;
         color:#ccc;
         width:75px;
@@ -116,6 +114,12 @@
         width:200px;
         margin:0 auto;
         text-align:center;
+    }
+
+    .side-image {
+        width:250px;
+        margin:0 auto;
+         display: block;
     }
     
     .sidebar .button:hover {
@@ -134,9 +138,20 @@
         background-color:#eee;
         max-height:100%;
         margin:30px;
-        padding:0;
+        padding:10px;
         margin-left:300px ;
         overflow-y:scroll;
+    }
+
+    .wrapper .form_outer {
+        display: block;
+        width: auto;
+        margin: 35px;
+    }
+
+    .wrapper .comment_box {
+        height: 100px;
+        width: 350px;
     }
     
     .wrapper:after {
@@ -244,25 +259,3 @@
         color:#fff;
         padding-left:30px;
     }
-    
-    .credit {
-        position:absolute;
-        margin:7px 13px;
-        padding:3px 5px;
-        font-size:8px;
-        bottom:0;
-        right:0;
-        background-color:#888;
-        color:#fff;
-        opacity:0.5;
-        transition:0.75s all;
-    }
-    
-    .credit:hover {
-        opacity:0.8;
-        letter-spacing:normal;
-    }
-    
-
-
-    

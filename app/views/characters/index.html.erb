@@ -4,7 +4,7 @@
 <html>
 
 <head>
-<title>Character Page Test</title>
+<title>CHB Yearbook</title>
 <link href='http://fonts.googleapis.com/css?family=Khula:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 
@@ -15,6 +15,7 @@
         <div class="desc">
             <p>Camp Half Blood (RP) Yearbook!</p>
             <p>Use the buttons on the side to filter campers.</p>
+            <button class="button"> <%= link_to 'New Character', new_character_path %> </button>
         </div>
 
         <div class="filters">
@@ -32,19 +33,17 @@
                 <button data-filter="" class="button ischecked">any</button>
                 <button data-filter=".male" class="button">male</button>
                 <button data-filter=".female" class="button">female</button>
-                <button data-filter=".nb" class="button">enby</button>
+                <button data-filter=".nonbinary" class="button">enby</button>
             </div>
 
             <h2>Gods</h2>
             <div class="button-group" data-filter-group="gods">
                 <button data-filter="" class="button ischecked">any</button>
-                <button data-filter=".agri" class="button">agriculture</button>
-                <button data-filter=".celes" class="button">celestial</button>
+                <button data-filter=".agriculture" class="button">agriculture</button>
+                <button data-filter=".celestial" class="button">celestial</button>
                 <button data-filter=".chthonic" class="button">chthonic</button>
-                <button data-filter=".emotion" class="button">emotional</button>
+                <button data-filter=".emotional" class="button">emotional</button>
                 <button data-filter=".minor" class="button">minor</button>
-                <button data-filter=".muse" class="button">muse</button>
-                <button data-filter=".prim" class="button">primordial</button>
                 <button data-filter=".sea" class="button">sea</button>
                 <button data-filter=".skill" class="button">skill</button>
                 <button data-filter=".sky" class="button">sky</button>
@@ -57,7 +56,7 @@
 
     <!-- BEGIN COPY PASTE -->
     <% @characters.each do |character| %>
-        <div class="chara inactive female chthonic" >
+        <div class="chara <%= character.tags %>" >
             <div class="charatitle"><span>
                 <p><%= character.name %></p>
                 <p><%= character.epithet =%></p>
@@ -65,20 +64,19 @@
             <div class="charahover">
                 <p> <%= character.comment %></p>
                 <p> <a href="<%= character.link %>">Character Profile</a> </p>
-                <p> <%= link_to 'Edit', edit_character_path(character) %> <p>
+                <p> <%= link_to 'Edit', edit_character_path(character) %> | <%= link_to 'Show', character_path(character) %> </p>
             </div>
             <img src="<%= character.image_link%>" class="charaimg">
         </div>
     <%end%>
 
     </div>
-    
-    
+
     <!-- All the filtering scripts. No need to mess with these unless you know what you're doing. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.js"></script>
     <script>
-        
+
 // external js: isotope.pkgd.js
 
 $(document).ready( function() {
@@ -111,7 +109,7 @@ $(document).ready( function() {
       $( this ).addClass('ischecked');
     });
   });
-  
+
 });
 
 // flatten object by concatting values
@@ -122,9 +120,9 @@ function concatValues( obj ) {
   }
   return value;
 }
-        
+
     </script>
-    
+
 </body>
 
 </html>

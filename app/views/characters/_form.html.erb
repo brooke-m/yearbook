@@ -11,32 +11,61 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<div class="form_outer">
+    <div class="field">
+      <%= form.label :name%>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :epithet %>
-    <%= form.text_field :epithet %>
-  </div>
+    <div class="field">
+      <%= form.label :epithet %>
+      <%= form.text_field :epithet %>
+    </div>
 
-  <div class="comment">
-    <%= form.label :comment %>
-    <%= form.text_field :comment %>
-  </div>
+    <div class="field">
+      <%= form.label :comment %>
+      <%= form.text_area :comment, :size => "60x12", class: 'comment_box' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :image_link %>
-    <%= form.text_field :image_link %>
-  </div>
+    <div class="field">
+      <%= form.label :image_link %>
+      <%= form.text_field :image_link %>
+    </div>
 
-  <div class="field">
-    <%= form.label :link %>
-    <%= form.text_field :link %>
-  </div>
+    <div class="field">
+      <%= form.label :link %>
+      <%= form.text_field :link %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="field">
+      <%= form.label :activity %>
+      <%= form.radio_button :activity, 'active' %> active <br/>
+      <%= form.radio_button :activity, 'inactive' %> inactive <br/>
+      <%= form.radio_button :dead, 'dead' %> dead <br/>
+    </div>
+
+    <div class="field">
+      <%= form.label :gender %>
+      <%= form.radio_button :gender, 'female' %> female <br/>
+      <%= form.radio_button :gender, 'male' %> male <br/>
+      <%= form.radio_button :gender, 'nonbinary' %> nonbinary <br/>
+    </div>
+
+    <div class="field">
+      <%= form.label :gods %>
+      <%= form.radio_button :gods, 'agriculture' %> agriculture <i>(demeter, dionysus, plutus)</i> <br/>
+      <%= form.radio_button :gods, 'celestial' %> celestial <i>(apollo, pandia, iris)</i> <br/>
+      <%= form.radio_button :gods, 'chthonic' %> chthonic <i>(hades, hecate, melinoe, chthonios)</i> <br/>
+      <%= form.radio_button :gods, 'emotional' %> emotional <i>(aphrodite, deimos, eirene, eris, eros, phobos, muses)</i> <br/>
+      <%= form.radio_button :gods, 'minor' %> minor <i>(circe, dike, hebe, heracles, hypnos, nemesis, nike, tyche)</i> <br/>
+      <%= form.radio_button :gods, 'sea' %> sea <i>(poseidon, castor & pollux, kymopoleia, triton)</i> <br/>
+      <%= form.radio_button :gods, 'skill' %> skill <i>(hephaestus, hermes, techne, asclepius)</i> <br/>
+      <%= form.radio_button :gods, 'sky' %> sky <i>(zeus, aeolus, the anemoi, khione)</i> <br/>
+      <%= form.radio_button :gods, 'war' %> war <i>(athena, ares, enyo)</i> <br/>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

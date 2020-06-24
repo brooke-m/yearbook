@@ -1,14 +1,43 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<p>
-  <strong>Name:</strong>
-  <%= @character.name %>
-</p>
+<html>
 
-<p>
-  <strong>Link:</strong>
-  <%= @character.link %>
-</p>
+<head>
+<title>Character Page Test</title>
+<link href='http://fonts.googleapis.com/css?family=Khula:400,300,700' rel='stylesheet' type='text/css'>
+</head>
 
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+<body>
+    <div class='sidebar'>
+        <h1><%= @character.name %></h1> <!-- Page title goes here. -->
+        <br></br>
+        <img src="<%= @character.image_link%>" class="side-image">
+        <br></br>
+        <div class="button-group">
+          <button class="button"> <%= link_to 'Edit', edit_character_path(@character) %> </button>
+          <button class="button"> <%= link_to 'Back', characters_path %> </button>
+                    <button class="button"> <%= link_to 'Delete', character_path(@character), method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+        </div>
+    </div>
+
+    <div class="wrapper"> <!-- main body -->
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Name:</strong>
+        <%= @character.name %>, <%= @character.epithet %>
+      </p>
+
+      <p>
+        <strong>Page:</strong>
+        <a href="<%= @character.link %>">Character Profile</a>
+      </p>
+
+      <p class="comment_box">
+        <%= @character.comment %>
+      </p>
+
+    </div>
+</body>
+
